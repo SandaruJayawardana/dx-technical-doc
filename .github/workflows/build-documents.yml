@@ -1,0 +1,98 @@
+name: Build technical documents
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "documents/**"
+      - "templates/**"
+      - "scripts/**"
+      - "documents.yaml"
+      - "Makefile"
+      - ".github/workflows/build-documents.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "documents/**"
+      - "templates/**"
+      - "scripts/**"
+      - "documents.yaml"
+      - "Makefile"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build PDF documents
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc and LaTeX
+        run: |
+          sudo apt-get update
+
+          sudo apt-get install --yes \
+            pandoc \
+            texlive-xetex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            curl
+
+      - name: Install yq
+        run: |
+          sudo curl --location \
+            https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 \
+            --output /usr/local/bin/yq
+
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Display installed versions
+        run: |
+          pandoc --version
+          xelatex --version
+          yq --version
+
+      - name: Make build script executable
+        run: |
+          chmod +x scripts/build.sh
+
+      - name: Build all documents
+        run: |
+          make build
+
+      - name: Verify generated PDFs
+        shell: bash
+        run: |
+          echo "Generated PDF documents:"
+
+          find dist \
+            -type f \
+            -name "*.pdf" \
+            -print
+
+          PDF_COUNT=$(find dist -type f -name "*.pdf" | wc -l)
+
+          if [ "$PDF_COUNT" -eq 0 ]; then
+            echo "Error: No PDF documents were generated."
+            exit 1
+          fi
+
+          echo "Successfully generated $PDF_COUNT PDF document(s)."
+
+      - name: Upload generated documents
+        uses: actions/upload-artifact@v4
+        with:
+          name: dx-technical-documents-${{ github.run_number }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
