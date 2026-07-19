@@ -8,6 +8,10 @@
 .vscode/
 .idea/
 
+# Temporary files
+.venv/
+site/
+
 # Temporary LaTeX files
 *.aux
 *.log

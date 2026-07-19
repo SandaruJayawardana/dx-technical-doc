@@ -1,0 +1,109 @@
+site_name: DicetriX Documentation
+site_description: Technical documentation for DicetriX products
+site_author: DicetriX
+
+site_url: https://DicetriX-dev.github.io/dx-technical-doc/
+repo_url: https://github.com/DicetriX-dev/dx-technical-doc
+repo_name: DX-TECHNICAL-DOC
+
+docs_dir: documents
+site_dir: site
+
+theme:
+  name: material
+  language: en
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.action.edit
+    - search.highlight
+    - search.suggest
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+
+  - DX CRM:
+      - Overview: dx-crm/index.md
+      - API Documentation: dx-crm/api.md
+      - User Manual: dx-crm/usermanual.md
+
+  - DX Travelz:
+      - Overview: dx-travelz/index.md
+      - API Documentation: dx-travelz/api.md
+      - User Manual: dx-travelz/usermanual.md
+
+  - Document Versions: versions.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  generator: false
+
+copyright: >
+  Copyright &copy; 2026 DicetriX. All rights reserved.
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - toc:
+      permalink: true
