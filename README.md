@@ -46,7 +46,7 @@ DX-TECHNICAL-DOC/
 
 ## Document Configuration
 
-Document-specific metadata is maintained in `documents.yaml`.
+Document-specific metadata is maintained in `documents.yml`.
 
 Example:
 
@@ -81,7 +81,7 @@ The configuration defines:
 Shared Pandoc and LaTeX settings are maintained in:
 
 ```text
-templates/metadata.yaml
+templates/metadata.yml
 ```
 
 ## Document Versioning
@@ -113,7 +113,7 @@ Examples:
 2.0.0 → Major restructuring or redesign
 ```
 
-To publish a new version, update the relevant entry in `documents.yaml`:
+To publish a new version, update the relevant entry in `documents.yml`:
 
 ```yaml
 version: "1.1.0"
@@ -305,7 +305,7 @@ documents/dx-crm/installation-guide.md
 
 ### 2. Add the document configuration
 
-Add the document under the corresponding product in `documents.yaml`:
+Add the document under the corresponding product in `documents.yml`:
 
 ```yaml
 installation-guide:
@@ -326,7 +326,7 @@ make build
 
 ## Adding a New Product
 
-Add a new product under `products` in `documents.yaml`:
+Add a new product under `products` in `documents.yml`:
 
 ```yaml
 products:
@@ -350,12 +350,12 @@ Create the corresponding source directory:
 documents/dx-new-product/
 ```
 
-The build script will discover the product and document entries from `documents.yaml`.
+The build script will discover the product and document entries from `documents.yml`.
 
 ## Recommended Release Workflow
 
 1. Update the Markdown document.
-2. Update its version and effective date in `documents.yaml`.
+2. Update its version and effective date in `documents.yml`.
 3. Build the document locally.
 4. Review the generated PDF.
 5. Commit the source and configuration changes.
@@ -366,7 +366,7 @@ The build script will discover the product and document entries from `documents.
 Example:
 
 ```bash
-git add documents/dx-crm/api.md documents.yaml
+git add documents/dx-crm/api.md documents.yml
 git commit -m "Release DX CRM API documentation v1.1.0"
 git push origin main
 ```
