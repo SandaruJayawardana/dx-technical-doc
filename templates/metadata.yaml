@@ -1,0 +1,17 @@
+author: "DicetriX"
+lang: "en-AU"
+date: \today
+
+geometry:
+  - margin=25mm
+
+fontsize: 11pt
+documentclass: article
+
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+
+toc: true
+toc-depth: 3
+numbersections: true

@@ -1,0 +1,46 @@
+schema_version: 1
+
+products:
+  dx-crm:
+    name: "DicetriX CRM"
+
+    documents:
+      api:
+        title: "DicetriX CRM API Documentation"
+        source: "documents/dx-crm/api.md"
+        version: "1.0.0"
+        status: "draft"
+        effective_date: "2026-07-19"
+        owner: "DicetriX"
+        output_name: "dx-crm-api"
+
+      usermanual:
+        title: "DicetriX CRM User Manual"
+        source: "documents/dx-crm/usermanual.md"
+        version: "1.0.0"
+        status: "draft"
+        effective_date: "2026-07-19"
+        owner: "DicetriX"
+        output_name: "dx-crm-user-manual"
+
+  dx-travelz:
+    name: "DicetriX Travelz"
+
+    documents:
+      api:
+        title: "DicetriX Travelz API Documentation"
+        source: "documents/dx-travelz/api.md"
+        version: "1.0.0"
+        status: "draft"
+        effective_date: "2026-07-19"
+        owner: "DicetriX"
+        output_name: "dx-travelz-api"
+
+      usermanual:
+        title: "DicetriX Travelz User Manual"
+        source: "documents/dx-travelz/usermanual.md"
+        version: "1.0.0"
+        status: "draft"
+        effective_date: "2026-07-19"
+        owner: "DicetriX"
+        output_name: "dx-travelz-user-manual"
